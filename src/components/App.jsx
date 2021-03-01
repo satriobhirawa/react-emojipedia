@@ -2,18 +2,6 @@ import React from "react";
 import Dictionary from "./Dictionary";
 import emojipedia from "../emojipedia";
 
-function createDict(dict){
-  return (
-    <Dictionary 
-      key= {dict.id}
-      id= {dict.id}
-      emojiImg= {dict.emoji}
-      emojiName= {dict.name}
-      emojiMean= {dict.meaning}
-
-    />
-  );
-}
 
 function App() {
   return (
@@ -23,7 +11,16 @@ function App() {
       </h1>
       
       <dl className="dictionary">
-       {emojipedia.map(createDict)}
+       {emojipedia.map(dict => {
+         return (<Dictionary 
+          key= {dict.id}
+          id= {dict.id}
+          emojiImg= {dict.emoji}
+          emojiName= {dict.name}
+          emojiMean= {dict.meaning}
+
+        />)
+       })}
       </dl>
     </div>
   );
